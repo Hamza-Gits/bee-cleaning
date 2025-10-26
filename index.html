@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bee' Cleaning Services — Bee’Cleaning Service’s LTD</title>
+
+  <!-- Google Fonts (safe to use) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Primary theme colours: black base, pink highlights, gold accents -->
+  <style>
+    /* ---------- VARIABLES ---------- */
+    :root{
+      --bg:#060606;                 /* deep black base */
+      --panel:#0f0f10;              /* dark panel */
+      --muted:#a7a7a7;              /* grey text */
+      --pink:#ff3ca6;               /* main accent */
+      --gold:#d4af37;               /* secondary accent */
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1100px;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    /* ---------- RESET ---------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg),#090909 60%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* ---------- NAVBAR ---------- */
+    header{
+      position:fixed;left:0;right:0;top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(6,6,6,0.6), rgba(6,6,6,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .navwrap{
+      max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:14px;
+      font-weight:800;letter-spacing:0.4px;
+    }
+    .logo-ball{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--pink),var(--gold));box-shadow:0 6px 20px rgba(0,0,0,0.6);
+      display:flex;align-items:center;justify-content:center;font-family:"Playfair Display", serif;font-weight:700;font-size:18px;color:#060606;
+    }
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{color:var(--muted);font-weight:600;font-size:15px;padding:8px 10px;border-radius:8px;transition:all .18s ease}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.03);transform:translateY(-2px)}
+
+    /* CTA in nav */
+    .cta{
+      background:linear-gradient(90deg,var(--pink),var(--gold));color:#060606;padding:10px 14px;border-radius:10px;font-weight:700;
+      box-shadow: 0 6px 20px rgba(255,60,166,0.08);transition:transform .16s ease, box-shadow .16s ease;
+    }
+    .cta:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(212,175,55,0.08)}
+
+    /* ---------- HERO ---------- */
+    .hero{
+      min-height:76vh;display:grid;align-items:center;padding:120px 20px 60px; /* top padding accounts for fixed header */
+      position:relative;overflow:hidden;
+    }
+    /* hero background image: replace /assets/hero.jpg */
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;background-image:url('/assets/hero.jpg');background-size:cover;background-position:center;
+      filter:contrast(0.9) saturate(1) brightness(0.35);transform:scale(1.02);
+      z-index:0;
+    }
+    .hero-gradient{
+      position:absolute;inset:0;background:linear-gradient(180deg, rgba(6,6,6,0.25), rgba(6,6,6,0.7));
+      z-index:1;
+    }
+    .hero-inner{position:relative;z-index:2;max-width:var(--max-width);margin:0 auto;display:flex;gap:40px;align-items:center;justify-content:space-between}
+    .hero-left{flex:1;min-width:280px}
+    .eyebrow{color:var(--pink);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    h1{font-family:"Playfair Display", serif;font-size:42px;line-height:1.02;margin-bottom:12px}
+    .tag{color:var(--muted);margin-bottom:18px}
+    .hero-cta{display:flex;gap:12px;align-items:center}
+    .btn{
+      padding:12px 18px;border-radius:12px;font-weight:700;background:var(--pink);color:#060606;border:none;cursor:pointer;
+      box-shadow:0 8px 30px rgba(255,60,166,0.06);transition:transform .16s ease,opacity .16s ease;
+    }
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .btn:hover{transform:translateY(-4px);opacity:0.98}
+
+    .hero-right{width:420px;max-width:45%;min-width:240px}
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:var(--shadow);
+    }
+    .price{font-weight:800;font-size:22px;margin-bottom:8px;color:var(--gold)}
+    .list{display:grid;gap:8px;color:var(--muted);font-size:14px}
+
+    /* ---------- SECTIONS ---------- */
+    main{max-width:var(--max-width);margin:40px auto;padding:0 20px}
+    section{margin:40px 0;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:18px}
+    .section-title h2{font-family:"Playfair Display", serif;font-size:22px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Services grid */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .service{background:var(--glass);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .service h3{font-size:16px;margin-bottom:8px}
+    .service p{color:var(--muted);font-size:14px}
+
+    /* Pricing table */
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .price-card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.02)}
+    .price-card h3{font-size:18px;margin-bottom:8px}
+    .price-amount{color:var(--pink);font-weight:800;font-size:20px}
+
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+    .caption{color:var(--muted);font-size:13px;margin-top:8px}
+
+    /* Testimonials */
+    .testi{display:flex;gap:12px;align-items:flex-start}
+    .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:800;color:#060606}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .contact-card{padding:16px;border-radius:12px;background:#0b0b0b;border:1px solid rgba(255,255,255,0.02)}
+    .contact-list a{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.03);color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Footer */
+    footer{max-width:var(--max-width);margin:36px auto;padding:20px 20px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:980px){
+      .services{grid-template-columns:repeat(2,1fr)}
+      .pricing-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-inner{flex-direction:column;align-items:flex-start}
+      .hero-right{width:100%;max-width:100%}
+      nav ul{display:none} /* simple mobile nav: use hero CTA & fixed header */
+    }
+    @media (max-width:640px){
+      h1{font-size:32px}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .pricing-grid{grid-template-columns:1fr}
+      .logo-ball{width:40px;height:40px;font-size:16px}
+      .navwrap{padding:12px}
+    }
+
+    /* subtle float animation for hero card */
+    @keyframes float {
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+      100%{transform:translateY(0)}
+    }
+    .hero-card{animation:float 6s ease-in-out infinite}
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header>
+    <div class="navwrap">
+      <div class="brand">
+        <!-- If you have a logo file later replace this block with <img src="/assets/logo.png" alt="Bee' Cleaning"> -->
+        <div class="logo-ball">B</div>
+        <div>
+          <div style="font-size:16px">Bee' Cleaning services</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Bee’Cleaning Service’s LTD</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a class="cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero" role="banner">
+    <div class="hero-gradient"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="eyebrow">Premium cleaning service — Manchester & Bolton</div>
+        <h1>Bee’Cleaning Service’s LTD</h1>
+        <div class="tag">Bee’Cleaning Service’s LTD Specialise in Cleaning of all aspects ✨ — Fresh, new, amazing results for homes and furniture.</div>
+
+        <div class="hero-cta">
+          <a class="btn" href="tel:+447506690173">Call Now: 07506 690173</a>
+          <a class="btn secondary" href="#contact">Contact us Today!</a>
+        </div>
+
+        <div style="margin-top:18px;color:var(--muted);font-size:13px">
+          <strong style="color:var(--gold)">Hours:</strong> Mon–Fri 07:30–19:30 — Weekend enquiries welcome.
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-card">
+          <div class="price">General cleaning from £20 / hour</div>
+          <div class="list">
+            <div class="small"><strong>Popular add-ons:</strong> Bedding £5, Laundry £15, Oven single £55</div>
+            <div class="small">Carpet & tenancy cleans available — from £45</div>
+            <div class="small">After builders from £85+. Booking subject to deposit — extra charges may apply.</div>
+            <div style="margin-top:8px"><a class="btn" href="#pricing">See full pricing</a></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-title">
+        <h2 id="about-title">About Bee' Cleaning services</h2>
+        <div class="muted">Slick · Modern · Reliable</div>
+      </div>
+      <p class="small" style="margin-bottom:12px">
+        Based in Manchester & Bolton. We specialise in domestic and end-of-tenancy cleaning, upholstery and oven cleans, carpet cleaning, after-build cleans, and declutter services.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:220px">
+          <h3 style="font-size:16px;margin-bottom:8px">Who we serve</h3>
+          <p class="muted">Homeowners, landlords, tenants, busy professionals, families who want immaculate homes without the hassle.</p>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <h3 style="font-size:16px;margin-bottom:8px">Why choose us</h3>
+          <ul class="muted" style="list-style:disc;padding-left:18px">
+            <li>Trusted: 100% recommended with 49 reviews on Facebook</li>
+            <li>Transparent pricing & clear T&Cs</li>
+            <li>Professional equipment & insured staff</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" aria-labelledby="services-title">
+      <div class="section-title">
+        <h2 id="services-title">Services / Facilities</h2>
+        <div class="muted">Full home care · Upholstery · Tenancy · Deep cleans</div>
+      </div>
+
+      <div class="services" role="list">
+        <article class="service" role="listitem">
+          <h3>Standard Home Cleaning</h3>
+          <p class="muted">Hourly or fixed jobs — from £20/hr. Kitchen, bathrooms, living areas, dusting & vacuuming.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <h3>End of Tenancy / Carpet</h3>
+          <p class="muted">Carpet cleaning pricing varies by bedroom size — deep clean to meet tenancy standards.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <h3>Oven & Appliance Cleaning</h3>
+          <p class="muted">Single ovens £55, double £75. Washing machine cleans from £35.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <h3>Upholstery & Sofa</h3>
+          <p class="muted">Upholstery from £85+. Spot treatments and stain removal available.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <h3>After Builders</h3>
+          <p class="muted">Heavy-duty cleaning after renovations. Prices from £85+ depending on scale.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <h3>Declutter & Extras</h3>
+          <p class="muted">Declutter services from £50+, pot wash, ironing, laundry add-ons available.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="section-title">
+        <h2 id="pricing-title">Pricing (high-level)</h2>
+        <div class="muted">Contact for accurate quotes; deposit required</div>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Pricing cards: add more or edit prices in HTML -->
+        <div class="price-card">
+          <h3>General Cleaning</h3>
+          <div class="price-amount">From £20 / hour</div>
+          <p class="muted small">Hourly or booked slot. Materials & standard products included.</p>
+        </div>
+
+        <div class="price-card">
+          <h3>One-off / Deep Clean</h3>
+          <div class="price-amount">From £85</div>
+          <p class="muted small">After builders, deep tenancy cleans — price based on size & add-ons.</p>
+        </div>
+
+        <div class="price-card">
+          <h3>Carpet / Tenancy</h3>
+          <div class="price-amount">From £45</div>
+          <p class="muted small">1-bed £45+, 2-bed £75+, 3-bed £145+, up to 6-bed £250+</p>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;color:var(--muted);font-size:13px">
+        <strong>T&Cs:</strong> All bookings subject to non-refundable deposit. Prices depend on add-ons; extra charges may apply. Late payment fee applies.
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" aria-labelledby="gallery-title">
+      <div class="section-title">
+        <h2 id="gallery-title">Gallery</h2>
+        <div class="muted">Replace images in /assets/ — 6 image grid below</div>
+      </div>
+
+      <!-- IMPORTANT: Replace these images in /assets/ with real photos.
+           Files expected:
+             /assets/gallery1.jpg
+             /assets/gallery2.jpg
+             /assets/gallery3.jpg
+             /assets/gallery4.jpg
+             /assets/gallery5.jpg
+             /assets/gallery6.jpg
+      -->
+      <div class="gallery-grid" role="list">
+        <figure><img src="/assets/gallery1.jpg" alt="Gallery 1 — interior clean"><figcaption class="caption">No caption yet</figcaption></figure>
+        <figure><img src="/assets/gallery2.jpg" alt="Gallery 2 — cleaned kitchen"><figcaption class="caption">No caption yet</figcaption></figure>
+        <figure><img src="/assets/gallery3.jpg" alt="Gallery 3 — upholstery cleaning"><figcaption class="caption">No caption yet</figcaption></figure>
+        <figure><img src="/assets/gallery4.jpg" alt="Gallery 4 — after clean"><figcaption class="caption">No caption yet</figcaption></figure>
+        <figure><img src="/assets/gallery5.jpg" alt="Gallery 5 — carpet clean"><figcaption class="caption">No caption yet</figcaption></figure>
+        <figure><img src="/assets/gallery6.jpg" alt="Gallery 6 — oven clean"><figcaption class="caption">No caption yet</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" aria-labelledby="testi-title">
+      <div class="section-title">
+        <h2 id="testi-title">Testimonials</h2>
+        <div class="muted">Real social proof — 49 Facebook reviews</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="testi">
+          <div class="avatar">B</div>
+          <div>
+            <div style="font-weight:700">100% recommended</div>
+            <div class="muted">"Fast, reliable and left my flat spotless. Highly recommend." — Facebook (49 reviews)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-title">
+        <h2 id="contact-title">Contact — Bookings & Enquiries</h2>
+        <div class="muted">Use phone, email or Facebook — no backend required</div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 style="margin-bottom:10px">Get in touch</h3>
+          <div class="contact-list">
+            <a href="tel:+447506690173"><strong>Phone:</strong>&nbsp;07506 690173</a>
+            <a href="mailto:bethanybromley5@gmail.com"><strong>Email:</strong>&nbsp;bethanybromley5@gmail.com</a>
+            <a href="https://www.facebook.com/profile.php?id=100092290083533" target="_blank" rel="noopener"><strong>Facebook:</strong>&nbsp;Bee' Cleaning services</a>
+          </div>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">
+            <strong>Booking note:</strong> All bookings subject to non-refundable deposit. Reply times: within working hours Mon–Fri 07:30–19:30; weekend messages handled as available.
+          </div>
+        </div>
+
+        <aside class="contact-card">
+          <h3 style="margin-bottom:10px">Quick actions</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a class="btn" href="tel:+447506690173">Call Now</a>
+            <a class="btn secondary" href="mailto:bethanybromley5@gmail.com">Email Us</a>
+            <a class="btn" href="https://www.facebook.com/profile.php?id=100092290083533" target="_blank" rel="noopener">Message on Facebook</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div>© <strong>Bee' Cleaning services</strong> — Manchester & Bolton · <span class="muted">100% recommended · 49 reviews</span></div>
+    <div style="margin-top:6px;color:var(--muted)">Designed for quick demo use. Edit text, images, and prices in the HTML file.</div>
+  </footer>
+
+  <!-- ===== OPTIONAL: Replace with Google Analytics gtag snippet (see instructions below) ===== -->
+  <!-- End of file -->
+</body>
+</html>
